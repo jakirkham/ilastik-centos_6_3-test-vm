@@ -1,0 +1,59 @@
+{
+  "min_packer_version": "0.6.0",
+  "variables": {
+    "build_version": "{{env `BUILD_VERSION`}}"
+  },
+  "builders": [
+    {
+      "name": "CentOS-6.3-i386",
+      "type": "virtualbox-iso",
+      "guest_os_type": "RedHat",
+      "iso_url": "http://mirrors.usc.edu/pub/linux/distributions/centos/6.3/isos/i386/CentOS-6.3-i386-minimal.iso",
+      "iso_checksum": "c596411085110dbb67fb030e667ae054afb413c8",
+      "iso_checksum_type": "sha1",
+      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+      "disk_size": 204800,
+      "http_directory": "http",
+      "boot_command": ["<tab> text ks=http://{{.HTTPIP}}:{{.HTTPPort}}/ks.cfg<enter><wait>"],
+      "boot_wait": "10s",
+      "ssh_username": "root",
+      "ssh_password": "vagrant",
+      "ssh_wait_timeout": "90m",
+      "shutdown_command": "sudo /sbin/halt -p now",
+      "vboxmanage": [
+        ["modifyvm", "{{.Name}}", "--memory", "480"],
+        ["modifyvm", "{{.Name}}", "--cpus", "1"]
+      ]
+    },
+    {
+      "name": "CentOS-6.3-x86_64",
+      "type": "virtualbox-iso",
+      "guest_os_type": "RedHat_64",
+      "iso_url": "http://mirrors.usc.edu/pub/linux/distributions/centos/6.3/isos/x86_64/CentOS-6.3-x86_64-minimal.iso",
+      "iso_checksum": "09801301433c8dc1a93d732790f9a4d8ca7895e6",
+      "iso_checksum_type": "sha1",
+      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+      "disk_size": 204800,
+      "http_directory": "http",
+      "boot_command": ["<tab> text ks=http://{{.HTTPIP}}:{{.HTTPPort}}/ks.cfg<enter><wait>"],
+      "boot_wait": "10s",
+      "ssh_username": "root",
+      "ssh_password": "vagrant",
+      "ssh_wait_timeout": "90m",
+      "shutdown_command": "sudo /sbin/halt -p now",
+      "vboxmanage": [
+        ["modifyvm", "{{.Name}}", "--memory", "480"],
+        ["modifyvm", "{{.Name}}", "--cpus", "1"]
+      ]
+    }
+  ],
+  "provisioners": [
+  ],
+  "post-processors": [
+    {
+      "type": "vagrant",
+      "compression_level": 9,
+      "output": "./builds/{{.BuildName}}.box"
+    }
+  ]
+}
