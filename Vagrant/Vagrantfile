@@ -378,7 +378,8 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ilastikci-cluster"
   config.vm.provision :shell, :inline => $root_provision_script
   config.vm.provision :shell, :privileged => false, :inline => $nonroot_provision_script
-  config.vm.box_url = "../Packer/builds/CentOS-6.3-x86_64.box"
+  config.vm.box_url = "https://dl.dropboxusercontent.com/s/o8fgih92rte8ru5/CentOS-6.3-x86_64.box"
+  #config.vm.box_url = "../Packer/builds/CentOS-6.3-x86_64.box"
   config.vm.hostname = "ilastikci-cluster"
 
   # Enable x11 forwarding (as if using ssh -X)
