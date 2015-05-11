@@ -18,6 +18,8 @@ Prerequisites
 - Install [VirtualBox][]
 - Install [Packer][]
 - Install [vagrant][] (You might be able to install vagrant via a package manager like `apt-get`, but make sure you get at least v1.4)
+  * However, until vagrant 1.7 there is a persistent bug where it is unable to shutdown properly and guest additions will not work after the initial provisioning.
+    It is recommended that you use v1.7. If this is not possible, you *can* use a lower version, but proceed with caution. Shutdown may require force.
 - Install a VNC Client (if you don't have one already)
   * Recommended: Real VNC [VNC Viewer](http://www.realvnc.com/download/viewer)
   * On Mac, a program called "Chicken of the VNC" is not recommended (it seems to drop some key strokes)
@@ -191,7 +193,7 @@ To bring the VM back to life,
 
 To shut down the VM, use
 
-    vagrant halt -f       # Vagrant does not use sudo as required for the shutdown command. So, force is required.
+    vagrant halt
 
 To start it up again, use
 
