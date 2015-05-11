@@ -19,8 +19,8 @@ Prerequisites
 - Install [Packer][]
 - Install [vagrant][] (You might be able to install vagrant via a package manager like `apt-get`, but make sure you get at least v1.4)
 - Install a VNC Client (if you don't have one already)
- * Recommended: Real VNC [VNC Viewer](http://www.realvnc.com/download/viewer)
- * On Mac, a program called "Chicken of the VNC" is not recommended (it seems to drop some key strokes)
+  * Recommended: Real VNC [VNC Viewer](http://www.realvnc.com/download/viewer)
+  * On Mac, a program called "Chicken of the VNC" is not recommended (it seems to drop some key strokes)
 
 [Packer]: http://www.packer.io
 [vagrant]: http://www.vagrantup.com
@@ -34,8 +34,8 @@ This package provides two main portions.
 
 1. The Packer portion, which contains a JSON file to be given to Packer for building the CentOS 6.3 box and a kickstart file for automatic the OS install.
 2. The vagrant portion, which contains the Vagrantfile for provisioning and starting up the VM using the Packer built box.
-  * Currently, uses a previously built box, which it links to. In order to use a Packer built box, just comment the existing config.vm.box_url and uncomment the other one.
-  * Also, if you wish to build the i386 box, you will need to change the filename used in the Vagrantfile.
+   * Currently, uses a previously built box, which it links to. In order to use a Packer built box, just comment the existing config.vm.box_url and uncomment the other one.
+   * Also, if you wish to build the i386 box, you will need to change the filename used in the Vagrantfile.
 
 Getting started
 ===============
