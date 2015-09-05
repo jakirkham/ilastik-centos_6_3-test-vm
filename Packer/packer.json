@@ -58,7 +58,7 @@
     {
       "type": "atlas",
       "only": ["CentOS-6.3-i386"],
-      "artifact": "jakirkham/ilastik-centos_6_3-test-vm",
+      "artifact": "jakirkham/ilastik-centos_6_3-test-vm_32",
       "artifact_type": "vagrant.box",
       "metadata": {
         "provider": "virtualbox",
@@ -68,7 +68,7 @@
     {
       "type": "atlas",
       "only": ["CentOS-6.3-x86_64"],
-      "artifact": "jakirkham/ilastik-centos_6_3-test-vm",
+      "artifact": "jakirkham/ilastik-centos_6_3-test-vm_64",
       "artifact_type": "vagrant.box",
       "metadata": {
         "provider": "virtualbox",
